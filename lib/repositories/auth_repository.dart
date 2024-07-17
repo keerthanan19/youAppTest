@@ -7,6 +7,11 @@ class AuthenticationRepository {
 
   AuthenticationRepository({required this.httpClient});
 
+static final AuthenticationRepository _instance = AuthenticationRepository._internal(http.Client()); 
+     // Private constructor
+     AuthenticationRepository._internal(this.httpClient); 
+     static AuthenticationRepository get instance => _instance;
+
   Future<bool> hasToken() async {
     // Implement token check logic
     return false;
